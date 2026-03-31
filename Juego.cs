@@ -1,3 +1,5 @@
+// Esta clase esta totlamente enfocada al inicio del programa, con su interfaz de usuario y sus correspondientes opciones
+
 public class Juego
 {
     public void MostrarMenuPrincipal()
@@ -18,7 +20,7 @@ public class Juego
             Console.WriteLine("Selecciona una opción");
 
             int opcion = 0;
-
+        
             try
             {
                 opcion = Convert.ToInt32(Console.ReadLine());
@@ -45,6 +47,8 @@ public class Juego
                 }
             }
 
+            // Estoy probando a añadir manejo de errores con try catch que vimos el jueves pasado
+            
             catch
             {
                 Console.WriteLine("Error: No se pueden utilizar opciones diferentes");
