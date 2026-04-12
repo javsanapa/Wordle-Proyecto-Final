@@ -38,4 +38,14 @@ public class Diccionario
             }
         }
     }
+
+    // Esta función comprueba que la palabra introducida exista en el diccionario, evitando palabras inventadas
+    public bool EsPalabraValida(string palabra)
+    {
+        // Normalizamos la palabra quitando espacios y convirtiéndola a mayúsculas
+        string palabraIntroducida = palabra.Trim().ToUpper();
+
+        // En caso de encontrarla devuelve true
+        return PalabrasValidas.Contains(palabraIntroducida); 
+    }
 }
