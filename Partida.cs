@@ -1,5 +1,10 @@
 public class Partida
 {
+    // He decidido utilizar una constante ya que siempre van a ser máximo 6 intentos
+    public const int INTENTOS_MAXIMOS = 6;
+
+    // Asignamos 0 por defecto para empezar a sumar 1 en cada intento
+    public int IntentoActual { get; private set; } = 0;
     private Diccionario diccionarioPartida;
 
     public Partida(Diccionario diccionario)
@@ -57,5 +62,30 @@ public class Partida
         }
 
         return intento.ToUpper();
+    }
+
+    public void ContadorIntentos()
+    {
+        Console.Clear();
+        Console.WriteLine("¡EMPIEZA EL JUEGO!");
+        Console.WriteLine("Adivina la palabra de 5 letras.");
+
+        // El bucle de los 6 intentos como máximo
+        while (IntentoActual < INTENTOS_MAXIMOS)
+        {
+            Console.WriteLine($"--- Intento {IntentoActual + 1} de {INTENTOS_MAXIMOS} ---");
+            
+            // Pedimos la palabra
+            string palabraJugada = PedirPalabraUsuario();
+            
+            Console.WriteLine($"Has jugado: {palabraJugada}");
+
+            // El contador suma 1 por cada palabra que pida el programa
+            IntentoActual++;
+        }
+
+        Console.WriteLine("Has alcanzado el número máximo de intentos. ¡Fin de la partida!");
+        Console.WriteLine("Pulsa ENTER para volver al menú principal...");
+        Console.ReadLine();
     }
 }
