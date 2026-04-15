@@ -35,4 +35,4 @@ El proyecto está desarrollado completamente en **C#** bajo la plataforma **.NET
 2. Clona este repositorio:
 
    ```bash
-   git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
+   git clone https://github.com/javsanapa/Wordle-Proyecto-Final.git
