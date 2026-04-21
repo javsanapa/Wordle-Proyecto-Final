@@ -48,4 +48,15 @@ public class Diccionario
         // En caso de encontrarla devuelve true
         return PalabrasValidas.Contains(palabraIntroducida); 
     }
+
+    // Esta función escogerá una palabra aleatoria de la lista en la que tenemos todas las palabras
+    public string ObtenerPalabraAleatoria()
+    {
+        // Clase random para generar el número
+        Random generarNumero = new Random(); 
+        // Elegimos un numero aleatorio entre la longitud de la lista
+        int numeroAleatorio = generarNumero.Next(0, PalabrasValidas.Count);
+        // Devolvemos la palabra aleatoria
+        return PalabrasValidas[numeroAleatorio];
+    }
 }
