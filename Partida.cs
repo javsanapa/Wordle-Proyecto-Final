@@ -6,10 +6,13 @@ public class Partida
     // Asignamos 0 por defecto para empezar a sumar 1 en cada intento
     public int IntentoActual { get; private set; } = 0;
     private Diccionario diccionarioPartida;
+    private string palabraSecreta;
+
 
     public Partida(Diccionario diccionario)
     {
         diccionarioPartida = diccionario;
+        palabraSecreta = diccionarioPartida.ObtenerPalabraAleatoria();
     }
 
     private string PedirPalabraUsuario()
