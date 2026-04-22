@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 public class Partida
 {
     // He decidido utilizar una constante ya que siempre van a ser máximo 6 intentos
@@ -81,7 +83,8 @@ public class Partida
             // Pedimos la palabra
             string palabraJugada = PedirPalabraUsuario();
             
-            Console.WriteLine($"Has jugado: {palabraJugada}");
+            // Cambiamos el WriteLine por la función que hemos creada
+            EvaluarIntento(palabraJugada);
 
             // El contador suma 1 por cada palabra que pida el programa
             IntentoActual++;
@@ -90,5 +93,32 @@ public class Partida
         Console.WriteLine("Has alcanzado el número máximo de intentos. ¡Fin de la partida!");
         Console.WriteLine("Pulsa ENTER para volver al menú principal...");
         Console.ReadLine();
+    }
+
+    // Esta función comprobará las letras verdes, las que estén en la posición correcta
+    public void EvaluarIntento(string intento)
+    {
+        // Recorremos las 5 letras 
+        for(int i = 0; i < 5; i++)
+        {
+            // Si la letra del intento coincide EXACTAMENTE con la de la palabra secreta 
+            // la coloreamos de verde
+            if(intento[i] == palabraSecreta[i])
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                // Escribimos la letra correcta coloreada de verde
+                Console.WriteLine(intento[i]);
+            }
+            else
+            {
+                // Este bloque de código es en caso de fallo o que este en 
+                // otra posición, de momento no miramos el amarillo
+                Console.ResetColor();
+                Console.Write(intento[i]);
+            }
+        }
+
+        Console.ResetColor();
+        Console.WriteLine("\n");
     }
 }
