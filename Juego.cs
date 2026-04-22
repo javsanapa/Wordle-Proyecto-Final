@@ -29,6 +29,13 @@ public class Juego
                     Console.WriteLine("Elige una opción correcta (1,2,3)");
                     opcion = Convert.ToInt32(Console.ReadLine());
                 }
+            }
+
+            // Estoy probando a añadir manejo de errores con try catch que vimos el jueves pasado
+            catch
+            {
+                Console.WriteLine("Error: No se pueden utilizar opciones diferentes");
+            }
 
                 switch(opcion)
                 {
@@ -45,14 +52,9 @@ public class Juego
                     salir = true;
                     break;
                 }
-            }
 
-            // Estoy probando a añadir manejo de errores con try catch que vimos el jueves pasado
             
-            catch
-            {
-                Console.WriteLine("Error: No se pueden utilizar opciones diferentes");
-            }
+            
 
             if (!salir)
             {
