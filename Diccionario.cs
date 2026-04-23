@@ -33,7 +33,6 @@ public class Diccionario
                 if (!PalabrasValidas.Contains(palabraLimpia))
                 {
                     PalabrasValidas.Add(palabraLimpia);
-                    Console.WriteLine(palabraLimpia);
                 }
             }
         }
