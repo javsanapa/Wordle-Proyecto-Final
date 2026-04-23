@@ -6,8 +6,7 @@ public class Juego
     {
         bool salir = false;
 
-        while (!salir)
-        {
+        
             Console.Clear();
 
             Console.WriteLine("====================================");
@@ -19,6 +18,8 @@ public class Juego
             Console.WriteLine("====================================");
             Console.WriteLine("Selecciona una opción");
 
+        while (!salir)
+        {
             int opcion = 0;
         
             try
@@ -34,7 +35,7 @@ public class Juego
             // Estoy probando a añadir manejo de errores con try catch que vimos el jueves pasado
             catch
             {
-                Console.WriteLine("Error: No se pueden utilizar opciones diferentes");
+                Console.WriteLine("Error: Elige una opción correcta (1,2,3)");
             }
 
                 switch(opcion)
@@ -52,15 +53,6 @@ public class Juego
                     salir = true;
                     break;
                 }
-
-            
-            
-
-            if (!salir)
-            {
-                Console.WriteLine("\nPulsa ENTER para continuar...");
-                Console.ReadLine(); 
-            }
         }
     }
 }
