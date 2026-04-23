@@ -18,23 +18,13 @@ public class Diccionario
 
     public void CargarPalabras(string archivo)
     {
-        // De momento he utilizado la ruta absoluta del ordenador de clase, lo cambiaré para que busque el archivo en la ruta relativa donde se encuentre el proyecto
+        // Creamos un Array para almacenar las líneas del archivo
         string[] lineasDelArchivo = File.ReadAllLines("diccionario.txt");
         
+        // Añadimos todas las palabras a la lista
         for (int i = 0; i < lineasDelArchivo.Length; i++)
         {
-            string linea = lineasDelArchivo[i];
-            string palabraLimpia = linea.Trim().ToUpper();
-
-            if (palabraLimpia.Length == 5)
-            {
-                // Tenemos que realizar una comprobación ya que las listas permiten valores duplicados, no como los arrays
-
-                if (!PalabrasValidas.Contains(palabraLimpia))
-                {
-                    PalabrasValidas.Add(palabraLimpia);
-                }
-            }
+            PalabrasValidas.Add(lineasDelArchivo[i]);
         }
     }
 
