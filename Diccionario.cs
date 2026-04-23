@@ -19,7 +19,7 @@ public class Diccionario
     public void CargarPalabras(string archivo)
     {
         // De momento he utilizado la ruta absoluta del ordenador de clase, lo cambiaré para que busque el archivo en la ruta relativa donde se encuentre el proyecto
-        string[] lineasDelArchivo = File.ReadAllLines("/home/jossanapa3/ConsoleApp1/si/Wordle/s.txt");
+        string[] lineasDelArchivo = File.ReadAllLines("diccionario.txt");
         
         for (int i = 0; i < lineasDelArchivo.Length; i++)
         {
