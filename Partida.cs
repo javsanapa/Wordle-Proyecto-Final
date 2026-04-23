@@ -91,6 +91,7 @@ public class Partida
         }
 
         Console.WriteLine("Has alcanzado el número máximo de intentos. ¡Fin de la partida!");
+        Console.WriteLine($"La palabra era: {palabraSecreta}");
         Console.WriteLine("Pulsa ENTER para volver al menú principal...");
         Console.ReadLine();
     }
@@ -107,7 +108,7 @@ public class Partida
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 // Escribimos la letra correcta coloreada de verde
-                Console.WriteLine(intento[i]);
+                Console.Write(intento[i]);
             }
             else
             {
