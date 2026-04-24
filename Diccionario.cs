@@ -19,12 +19,12 @@ public class Diccionario
     public void CargarPalabras(string archivo)
     {
         // Creamos un Array para almacenar las líneas del archivo
-        string[] lineasDelArchivo = File.ReadAllLines("diccionario.txt");
+        string[] lineasDelArchivo = File.ReadAllLines(archivo);
         
         // Añadimos todas las palabras a la lista
         for (int i = 0; i < lineasDelArchivo.Length; i++)
         {
-            PalabrasValidas.Add(lineasDelArchivo[i]);
+            PalabrasValidas.Add(lineasDelArchivo[i].ToUpper());
         }
     }
 
