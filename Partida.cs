@@ -73,10 +73,14 @@ public class Partida
     {
         Console.Clear();
         Console.WriteLine("¡EMPIEZA EL JUEGO!");
+        Console.WriteLine(palabraSecreta);
         Console.WriteLine("Adivina la palabra de 5 letras.");
 
+        // Boleano que servirá para la pantalla de victoria
+        bool palabraAcertada = false;
+
         // El bucle de los 6 intentos como máximo
-        while (IntentoActual < INTENTOS_MAXIMOS)
+        while (IntentoActual < INTENTOS_MAXIMOS && !palabraAcertada)
         {
             Console.WriteLine($"--- Intento {IntentoActual + 1} de {INTENTOS_MAXIMOS} ---");
 
@@ -85,15 +89,35 @@ public class Partida
 
             // Cambiamos el WriteLine por la función que hemos creada
             EvaluarIntento(palabraJugada);
+            // Si acierta la palabra ponemos el booleano a true para cargar el código de la victoria
+            if (palabraJugada == palabraSecreta)
+            {
+                palabraAcertada = true;
+            }
 
             // El contador suma 1 por cada palabra que pida el programa
             IntentoActual++;
         }
 
-        Console.WriteLine("Has alcanzado el número máximo de intentos. ¡Fin de la partida!");
-        Console.WriteLine($"La palabra era: {palabraSecreta}");
-        Console.WriteLine("Pulsa ENTER para volver al menú principal...");
-        Console.ReadLine();
+        // Usuario gana
+        if (palabraAcertada)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Felicidades! Has adivinado la palabra: {palabraSecreta} en {IntentoActual} intentos");
+            Console.WriteLine("Pulsa ENTER para volver al menú principal...");
+            Console.ReadLine();
+        }
+        // Usuario pierde
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Has alcanzado el número máximo de intentos. ¡Fin de la partida!");
+            Console.WriteLine($"La palabra era: {palabraSecreta}");
+            Console.WriteLine("Pulsa ENTER para volver al menú principal...");
+            Console.ReadLine();
+        }
+
+
     }
 
     // Esta función comprueba todos los estados de las letras pero NO identifica duplicados por lo cual no está completa
