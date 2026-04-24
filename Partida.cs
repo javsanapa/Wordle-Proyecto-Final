@@ -25,7 +25,7 @@ public class Partida
         while (!esPalabraValida)
         {
             Console.WriteLine("Introduce tu palabra (5 letras): ");
-            
+
             try
             {
                 intento = Console.ReadLine();
@@ -79,10 +79,10 @@ public class Partida
         while (IntentoActual < INTENTOS_MAXIMOS)
         {
             Console.WriteLine($"--- Intento {IntentoActual + 1} de {INTENTOS_MAXIMOS} ---");
-            
+
             // Pedimos la palabra
             string palabraJugada = PedirPalabraUsuario();
-            
+
             // Cambiamos el WriteLine por la función que hemos creada
             EvaluarIntento(palabraJugada);
 
@@ -96,27 +96,28 @@ public class Partida
         Console.ReadLine();
     }
 
-    // Esta función comprobará las letras verdes, las que estén en la posición correcta
-    public void EvaluarIntento(string intento)
+    // Esta función comprueba todos los estados de las letras pero NO identifica duplicados por lo cual no está completa
+    private void EvaluarIntento(string intento)
     {
-        // Recorremos las 5 letras 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
-            // Si la letra del intento coincide EXACTAMENTE con la de la palabra secreta 
-            // la coloreamos de verde
-            if(intento[i] == palabraSecreta[i])
+            if (intento[i] == palabraSecreta[i])
             {
+                // Letra correcta en posición correcta = VERDE
                 Console.ForegroundColor = ConsoleColor.Green;
-                // Escribimos la letra correcta coloreada de verde
-                Console.Write(intento[i]);
+            }
+            else if (palabraSecreta.Contains(intento[i]))
+            {
+                // La letra está en la palabra pero en otra posición = AMARILLA
+                Console.ForegroundColor = ConsoleColor.Yellow;
             }
             else
             {
-                // Este bloque de código es en caso de fallo o que este en 
-                // otra posición, de momento no miramos el amarillo
-                Console.ResetColor();
-                Console.Write(intento[i]);
+                // La letra no está en la palabra = GRIS
+                Console.ForegroundColor = ConsoleColor.DarkGray;
             }
+
+            Console.Write(intento[i]);
         }
 
         Console.ResetColor();
