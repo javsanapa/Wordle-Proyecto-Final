@@ -12,4 +12,31 @@ public class Jugador
         Racha = 0;
         PartidasJugadas = 0;
     }
+
+    public void RegistrarVictoria()
+    {
+        PartidasJugadas++;
+        Victorias++;
+        Racha++;
+    }
+
+    public void RegistrarDerrota()
+    {
+        PartidasJugadas++;
+        Racha = 0;
+    }
+
+    public void MostrarEstadisticas()
+    {
+        Console.WriteLine($"\n--- ESTADÍSTICAS DE {Nombre.ToUpper()} ---");
+        Console.WriteLine($"Partidas jugadas: {PartidasJugadas}");
+        Console.WriteLine($"Victorias: {Victorias}");
+        Console.WriteLine($"Racha actual: {Racha}");
+
+        if(PartidasJugadas > 0)
+        {
+            double porcentajeVictorias = ((double)Victorias / PartidasJugadas) * 100;
+            Console.WriteLine($"% de Victorias: {porcentajeVictorias}");
+        }
+    }
 }
