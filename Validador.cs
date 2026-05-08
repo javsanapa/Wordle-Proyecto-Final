@@ -1,5 +1,19 @@
-// Clase que comprueba que la palabra es valida usando expresiones regulares
+// Clase que comprueba que la palabra introducida por el usuario es valida usando expresiones regulares
+using System.Text.RegularExpressions;
+
 public class Validador
 {
-    
+    public static bool EsPalabraValida(string intento)
+    {
+        // Early return si ha dejado el input vacio
+        if(string.IsNullOrWhiteSpace(intento))
+        {
+            return false;
+        }
+        
+        // He investigado para poder comrpobar las Ñ, en el regex, además no hace falta
+        // Comprobar tildes ya que el diccionario ha limpiado las tildes
+        Regex regexPalabra = new Regex(@"^[a-zA-ZñÑ]{5}$");
+        return regexPalabra.IsMatch(intento);
+    }
 }
