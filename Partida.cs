@@ -88,21 +88,48 @@ public class Partida
 
     private void EvaluarIntento(string intento)
     {
+        // Este array guardará el color final de cada letra
+        ConsoleColor[] colores = new ConsoleColor[5];
+        // Este array de booleanos empieza con todo en false, cuando una letra queda asignada
+        // A una letra del intento la marcaremos true para que no se vuelva a usar
+        bool[] letraUsada = new bool[5];
+
+        // 1er bucle, solo verdes
         for (int i = 0; i < 5; i++)
         {
             if (intento[i] == palabraSecreta[i])
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                colores[i] = ConsoleColor.Green;
+                letraUsada[i] = true;
             }
+        }
 
-            else if (palabraSecreta.Contains(intento[i]))
+        // 2ndo bucle, amarillas y grises
+        for (int i = 0; i < 5; i++)
+        {
+            // Saltamos las letras que sean verdes, ya que no nos interesan
+            if (colores[i] == ConsoleColor.Green)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                continue;
             }
-            else
+            // Todas las restantes son grises por defecto
+            colores[i] = ConsoleColor.DarkGray; 
+            for (int j = 0; j < 5; j++)
             {
-                Console.ForegroundColor = ConsoleColor.DarkGray;
+                // Pintamos de amarilla si la letra está en la palabra y la asignamos como true
+                if (!letraUsada[j] && intento[i] == palabraSecreta[j])
+                {
+                    colores[i] = ConsoleColor.Yellow;
+                    letraUsada[j] = true;
+                    break;
+                }
             }
+        }
+
+        // 4to bucle para mostrar todo el intento
+        for (int i = 0; i < 5; i++)
+        {
+            Console.ForegroundColor = colores[i];
             Console.Write(intento[i]);
         }
         Console.ResetColor();
