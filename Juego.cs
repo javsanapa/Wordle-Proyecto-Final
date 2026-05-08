@@ -48,7 +48,7 @@ public class Juego
                     // Instanciamos la partida
                     Partida nuevaPartida = new Partida(miDiccionario);
                     // Comenzamos la partida
-                    nuevaPartida.ContadorIntentos();
+                    nuevaPartida.Iniciar();
                     break;
 
                 case 2:
