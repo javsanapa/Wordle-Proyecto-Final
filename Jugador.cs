@@ -5,6 +5,11 @@ public class Jugador
     public int Racha {get; set;}
     public int PartidasJugadas {get; set;}
 
+    // Necesitamos este constructor para que serializer funcione
+    public Jugador()
+    {
+        Nombre = "";
+    }
     public Jugador(string nombre)
     {
         Nombre = nombre;
