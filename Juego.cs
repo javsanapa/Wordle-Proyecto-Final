@@ -2,6 +2,15 @@
 
 public class Juego
 {
+    // Necesitamos estas dos variables privadas para identificar al jugador y tener acceso a todos los jugadores
+    // Para hacer una comprobación de qué perfiles existen
+    private List<Jugador> jugadores;
+    private Jugador jugadorActivo;
+    public Juego()
+    {
+        jugadores = GestorDeDatos.CargarJugadores();
+        jugadorActivo = null;
+    }
     public void MostrarMenuPrincipal()
     {
         bool salir = false;
