@@ -11,12 +11,13 @@ public class Partida
         palabraSecreta = diccionarioPartida.ObtenerPalabraAleatoria();
     }
 
-    // Coordina el flujo completo de la partida
-    public void Iniciar()
+    // He cambiado esta función a bool para poder registrar las victorias y derrotas en el switch
+    public bool Iniciar()
     {
         MostrarInicio();
         bool victoria = EjecutarRondas();
         MostrarResultado(victoria);
+        return victoria;
     }
 
     private void MostrarInicio()
