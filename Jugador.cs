@@ -41,7 +41,8 @@ public class Jugador
         if(PartidasJugadas > 0)
         {
             double porcentajeVictorias = ((double)Victorias / PartidasJugadas) * 100;
-            Console.WriteLine($"% de Victorias: {porcentajeVictorias}");
+            // He añadido un round para gestionar mejor los decimales
+            Console.WriteLine($"% de Victorias: {Math.Round(porcentajeVictorias, 2)}");
         }
     }
 }
