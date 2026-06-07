@@ -11,8 +11,6 @@ public class Validador
             return false;
         }
         
-        // He investigado para poder comrpobar las Ñ, en el regex, además no hace falta
-        // Comprobar tildes ya que el diccionario ha limpiado las tildes
         Regex regexPalabra = new Regex(@"^[a-zA-ZñÑ]{5}$");
         return regexPalabra.IsMatch(intento);
     }

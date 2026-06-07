@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Wordle.MainWindow"
+        Title="Wordle" Width="380" Height="680">
+
+    <StackPanel Margin="15" Spacing="8">
+
+        <!-- Titulo de la aplicación-->
+        <TextBlock FontSize="30" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,4">W O R D L E</TextBlock>
+
+        <!-- Apartado de "Login" -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" Spacing="5">
+            <TextBox x:Name="InputNombre" Width="140"
+                     PlaceholderText="Tu nombre"/>
+            <Button Click="Confirmar_Click">Entrar</Button>
+        </StackPanel>
+
+        <!-- Nombre y botones de acción -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" Spacing="5">
+            <TextBlock x:Name="InfoJugador" VerticalAlignment="Center"/>
+            <Button x:Name="BtnNuevaPartida"
+                    Click="NuevaPartida_Click"
+                    IsEnabled="False">Nueva Partida</Button>
+            <Button x:Name="BtnEstadisticas"
+                    Click="Estadisticas_Click"
+                    IsEnabled="False">Estadísticas</Button>
+        </StackPanel>
+
+        <!-- Tablero del juego -->
+        <StackPanel x:Name="GridLetras" Spacing="5"
+                    HorizontalAlignment="Center"/>
+
+        <StackPanel x:Name="PanelInput"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Spacing="8"
+                    IsVisible="False">
+            <TextBox x:Name="InputPalabra" Width="200"
+                     MaxLength="5"
+                     PlaceholderText="Escribe tu palabra"/>
+            <Button Click="Enviar_Click">Enviar</Button>
+        </StackPanel>
+
+        <!-- Mensajes de estado del juego -->
+        <TextBlock x:Name="Mensaje"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   MaxWidth="340" FontSize="13"/>
+
+    </StackPanel>
+</Window>

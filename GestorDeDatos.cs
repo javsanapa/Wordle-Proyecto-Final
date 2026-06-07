@@ -13,8 +13,10 @@ public class GestorDeDatos
             File.WriteAllText(RUTA, "[]");
         }
         string lecturaJson = File.ReadAllText(RUTA);
+        // Deserialize puede devolver null (p. ej. si el archivo contiene "null"),
+        // así que devolvemos una lista vacía en ese caso.
         List<Jugador> jugadores = JsonSerializer.Deserialize<List<Jugador>>(lecturaJson);
-        return jugadores;
+        return jugadores ?? new List<Jugador>();
     }
 
     public static void GuardarJugadores(List<Jugador> jugadores)

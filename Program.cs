@@ -1,11 +1,24 @@
-﻿public class Program
+﻿using Avalonia;
+using System;
+
+namespace AvaloniaApplication1;
+
+class Program
 {
-    public static void Main()
-    {
-        // Instanciamos juego
-        Juego miJuego = new Juego();
-        
-        // Llamamos a la función que muestra el menú
-        miJuego.MostrarMenuPrincipal();
-    }
+    // Initialization code. Don't use any Avalonia, third-party APIs or any
+    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
+    // yet and stuff might break.
+    [STAThread]
+    public static void Main(string[] args) => BuildAvaloniaApp()
+        .StartWithClassicDesktopLifetime(args);
+
+    // Avalonia configuration, don't remove; also used by visual designer.
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+#if DEBUG
+            .WithDeveloperTools()
+#endif
+            .WithInterFont()
+            .LogToTrace();
 }

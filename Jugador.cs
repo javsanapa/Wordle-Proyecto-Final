@@ -30,19 +30,4 @@ public class Jugador
         PartidasJugadas++;
         Racha = 0;
     }
-
-    public void MostrarEstadisticas()
-    {
-        Console.WriteLine($"\n--- ESTADÍSTICAS DE {Nombre.ToUpper()} ---");
-        Console.WriteLine($"Partidas jugadas: {PartidasJugadas}");
-        Console.WriteLine($"Victorias: {Victorias}");
-        Console.WriteLine($"Racha actual: {Racha}");
-
-        if(PartidasJugadas > 0)
-        {
-            double porcentajeVictorias = ((double)Victorias / PartidasJugadas) * 100;
-            // He añadido un round para gestionar mejor los decimales
-            Console.WriteLine($"% de Victorias: {Math.Round(porcentajeVictorias, 2)}");
-        }
-    }
 }

@@ -7,7 +7,6 @@ using System.IO;
 
 public class Diccionario
 {
-    // En un principio había utilizado Arrays, después de la clase del Jueves pasado decidí probar implementando una lista
     public List<string> PalabrasValidas { get; set; } 
 
     public Diccionario()
