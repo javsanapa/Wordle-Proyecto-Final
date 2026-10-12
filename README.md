@@ -2,8 +2,6 @@
 
 Este repositorio contiene el Proyecto Final para el módulo de Programación del **1º curso de FP Grado Superior DAW (Desarrollo de Aplicaciones Web)**.
 
-Desarrollado en el **IES Miguel Ballesteros Viana**.
-
 ## 📖 Descripción del Proyecto
 
 "Adivina la Palabra" es un videojuego de lógica y vocabulario inspirado en las mecánicas del popular juego *Wordle*, con **interfaz gráfica de escritorio** desarrollada con **Avalonia UI**.
