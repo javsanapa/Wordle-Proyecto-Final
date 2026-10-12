@@ -1,0 +1,28 @@
+# Resultados de compilación de .NET
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+
+# Archivos de Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# Paquetes NuGet
+*.nupkg
+packages/
+
+# Datos generados al jugar (estadísticas de los jugadores)
+jugadores.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

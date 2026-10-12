@@ -15,6 +15,8 @@ public partial class MainWindow : Window
     // Array bidimensional que representa las filas y columnas.
     // Guardamos las 30 celdas
     private TextBlock[,] celdas = new TextBlock[INTENTOS_MAXIMOS, 5];
+    // Bordes que contienen cada celda, guardan el color de fondo de la casilla
+    private Border[,] casillas = new Border[INTENTOS_MAXIMOS, 5];
 
     private Diccionario diccionarioPartida = new Diccionario();
     private List<Jugador> jugadores;
@@ -49,18 +51,24 @@ public partial class MainWindow : Window
             // Anidamos otro bucle con las 5 columnas para las 5 letras
             for (int col = 0; col < 5; col++)
             {
+                // El Border es la casilla de tamaño fijo y lleva el color de fondo;
+                // el TextBlock va dentro centrado en horizontal y vertical
+                Border casilla = new Border();
+                casilla.Width = 54;
+                casilla.Height = 54;
+                // El color de fondo lo ponemos con Brushes ya que luego cambiará durante el juego
+                casilla.Background = Brushes.LightGray;
+
                 TextBlock tb = new TextBlock();
-                tb.Width = 54;
-                tb.Height = 54;
                 tb.FontSize = 22;
                 tb.FontWeight = FontWeight.Bold;
-                tb.TextAlignment = TextAlignment.Center;
+                tb.HorizontalAlignment = HorizontalAlignment.Center;
                 tb.VerticalAlignment = VerticalAlignment.Center;
-                // El color de fondo lo ponemos con Brushes ya que luego cambiará durante el juego
-                tb.Background = Brushes.LightGray;
+                casilla.Child = tb;
 
                 celdas[fila, col] = tb;
-                filaSP.Children.Add(tb);
+                casillas[fila, col] = casilla;
+                filaSP.Children.Add(casilla);
             }
 
             GridLetras.Children.Add(filaSP);
@@ -115,7 +123,7 @@ public partial class MainWindow : Window
             {
                 celdas[fila, col].Text = "";
                 celdas[fila, col].Foreground = Brushes.Black;
-                celdas[fila, col].Background = Brushes.LightGray;
+                casillas[fila, col].Background = Brushes.LightGray;
             }
 
         }
@@ -157,7 +165,7 @@ public partial class MainWindow : Window
             // Accedemos a la celda por su posición
             celdas[intentoActual, col].Text = intento[col].ToString();
             celdas[intentoActual, col].Foreground = Brushes.White;
-            celdas[intentoActual, col].Background = colores[col];
+            casillas[intentoActual, col].Background = colores[col];
         }
 
         intentoActual++;
@@ -233,8 +241,8 @@ public partial class MainWindow : Window
         GestorDeDatos.GuardarJugadores(jugadores);
     }
 
-    // Mostramoos por la pantalla als estadísticas del jugador cuando
-    // El jugador clica en estadísticas
+    // Mostramos por pantalla las estadísticas del jugador cuando
+    // el jugador hace clic en Estadísticas
     private void Estadisticas_Click(object? sender, RoutedEventArgs e)
     {
         if (jugadorActivo == null)

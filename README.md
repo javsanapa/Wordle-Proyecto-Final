@@ -25,7 +25,7 @@ El objetivo del jugador es adivinar una palabra secreta de cinco letras en un m�
 
 ## 🛠️ Tecnologías Utilizadas
 
-El proyecto está desarrollado completamente en **C#** bajo la plataforma **.NET**
+El proyecto está desarrollado completamente en **C#** bajo la plataforma **.NET 10**.
 
 * **Avalonia UI:** Framework multiplataforma para construir la interfaz gráfica de escritorio.
 * **POO:** Clases principales como `MainWindow`, `Jugador`, `Diccionario`, `Validador` y `GestorDeDatos`. Uso de encapsulación y modificadores de acceso.
@@ -43,7 +43,7 @@ El proyecto está desarrollado completamente en **C#** bajo la plataforma **.NET
 
 ## 🚀 Cómo ejecutar el proyecto
 
-1. Asegúrate de tener instalado el SDK de .NET en tu equipo.
+1. Asegúrate de tener instalado el SDK de **.NET 10** (o superior) en tu equipo. Las dependencias (Avalonia 12) se descargan automáticamente al compilar.
 2. Clona este repositorio:
 
    ```bash

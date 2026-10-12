@@ -1,5 +1,4 @@
 // Clase totalmente enfocada a generar todas las palabras admitidas en la RAE que tengan una longitud de 5 letras
-// Investigar como hacer un archivo externo que filtre todas las palabras de longitud de 5 letras para optimizar el rendimiento del programa
 
 using System;
 using System.Collections.Generic;
@@ -20,10 +19,14 @@ public class Diccionario
         // Creamos un Array para almacenar las líneas del archivo
         string[] lineasDelArchivo = File.ReadAllLines(archivo);
         
-        // Añadimos todas las palabras a la lista
+        // Añadimos a la lista solo las palabras de 5 letras, descartando el resto
         for (int i = 0; i < lineasDelArchivo.Length; i++)
         {
-            PalabrasValidas.Add(lineasDelArchivo[i].ToUpper());
+            string palabra = lineasDelArchivo[i].Trim().ToUpper();
+            if (palabra.Length == 5)
+            {
+                PalabrasValidas.Add(palabra);
+            }
         }
     }
 
